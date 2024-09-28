@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Keyframes */
+@keyframes lightSaber {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Animation */
+.group:hover span {
+  animation: lightSaber 0.5s ease-out;
+  transform: scaleX(1);
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-carousel {
+  display: flex;
+  width: calc(200% + 32px); /* Ensure container width is double the combined width of all items */
+  animation: carousel 10s linear infinite;
+}
+
+.animate-carousel > div {
+  min-width: calc(100% / 6); /* Ensure each item takes up 1/6 of the container's width */
+  flex: 0 0 auto;
+  padding: 0 16px;
+}
+
